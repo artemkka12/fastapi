@@ -1,4 +1,4 @@
-from fastapi import Depends, FastAPI, HTTPException, APIRouter
+from fastapi import Depends, HTTPException, APIRouter
 from sqlalchemy.orm import Session
 
 from apps.users import models
@@ -7,8 +7,6 @@ from apps.users import crud
 from config.database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
-
-app = FastAPI()
 
 router = APIRouter()
 

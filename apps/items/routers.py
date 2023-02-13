@@ -1,14 +1,12 @@
-from fastapi import Depends, FastAPI, APIRouter
+from fastapi import Depends, APIRouter
 from sqlalchemy.orm import Session
 
+from apps.items import crud
 from apps.items import models
 from apps.items import schemas
-from apps.items import crud
 from config.database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
-
-app = FastAPI()
 
 router = APIRouter()
 
