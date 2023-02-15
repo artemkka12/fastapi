@@ -7,12 +7,12 @@ class ItemBase(BaseModel):
 
 
 class ItemCreate(ItemBase):
-    pass
+    user_id: int
 
 
 class Item(ItemBase):
     id: int
-    owner_id: int
+    user_id: int
 
     class Config:
         orm_mode = True

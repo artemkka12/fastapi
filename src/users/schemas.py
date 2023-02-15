@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-from apps.items.schemas import Item
+from src.items.schemas import Item
 
 
 class UserBase(BaseModel):

@@ -2,11 +2,11 @@ import time
 
 from fastapi import FastAPI, Request
 
-from config.routers import router
+from src.router import main_router
 
 app = FastAPI()
 
-app.include_router(router)
+app.include_router(main_router)
 
 
 @app.middleware("http")
