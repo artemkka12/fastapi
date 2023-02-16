@@ -2,8 +2,13 @@ from pydantic import BaseModel
 
 from src.items.schemas import Item
 
+__all__ = ["UserBase", "UserCreate", "User"]
+
 
 class UserBase(BaseModel):
+    first_name: str | None = None
+    last_name: str | None = None
+    phone: str | None = None
     email: str
 
 

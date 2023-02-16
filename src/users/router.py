@@ -1,11 +1,9 @@
 from fastapi import Depends, APIRouter
 from sqlalchemy.orm import Session
 
-from src.database import get_db, engine
-from . import service, schemas, models
+from src.database import get_db
+from . import service, schemas
 from .exceptions import UserAlreadyExistsException, UserNotFoundException
-
-models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter()
 

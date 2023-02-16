@@ -1,5 +1,7 @@
 from fastapi import HTTPException
 
+__all__ = ["ItemNotFoundException"]
+
 
 class ItemNotFoundException(HTTPException):
     def __init__(self, item_id: int):

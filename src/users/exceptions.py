@@ -1,5 +1,7 @@
 from fastapi import HTTPException
 
+__all__ = ["UserAlreadyExistsException", "UserNotFoundException"]
+
 
 class UserAlreadyExistsException(HTTPException):
     def __init__(self, email: str):
