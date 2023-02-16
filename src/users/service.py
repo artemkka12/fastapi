@@ -5,8 +5,8 @@ from .utils import hash_password
 
 
 def create_user(db: Session, user: schemas.UserCreate):
-    password = hash_password(user.password)
-    db_user = models.User(email=user.email, password=password)
+    user.password = hash_password(user.password)
+    db_user = models.User(**user.dict())
     db.add(db_user)
     db.commit()
     db.refresh(db_user)

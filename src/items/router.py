@@ -1,12 +1,10 @@
 from fastapi import Depends, APIRouter, HTTPException
 from sqlalchemy.orm import Session
 
-from src.database import engine, get_db
-from . import service, models, schemas
+from src.database import get_db
+from . import service, schemas
 from .exceptions import ItemNotFoundException
 from ..users.service import get_user_by_id
-
-models.Base.metadata.create_all(bind=engine)
 
 router = APIRouter()
 
