@@ -1,12 +1,15 @@
 import time
 
 from fastapi import FastAPI, Request
+from starlette.staticfiles import StaticFiles
 
 from src.router import main_router
 
 app = FastAPI()
 
 app.include_router(main_router)
+
+app.mount("/images", StaticFiles(directory="images"), name="images")
 
 
 @app.middleware("http")

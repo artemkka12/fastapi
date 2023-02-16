@@ -7,6 +7,8 @@ class ItemBase(BaseModel):
     title: str
     description: str | None = None
     price: int | None = None
+    sku: str | None = None
+    image_path: str | None = None
 
 
 class ItemCreate(ItemBase):
@@ -15,7 +17,6 @@ class ItemCreate(ItemBase):
 
 class Item(ItemBase):
     id: int
-    user_id: int
 
     class Config:
         orm_mode = True

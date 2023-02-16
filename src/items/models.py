@@ -14,6 +14,7 @@ class Item(Base):
     description = Column(String)
     price = Column(Integer)
     sku = Column(String)
+    image_path = Column(String)
     user_id = Column(Integer, ForeignKey("users.id"))
 
     owner = relationship("User", back_populates="items")

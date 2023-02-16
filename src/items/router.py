@@ -1,4 +1,4 @@
-from fastapi import Depends, APIRouter, HTTPException
+from fastapi import Depends, APIRouter, HTTPException, File, UploadFile
 from sqlalchemy.orm import Session
 
 from src.database import get_db
@@ -15,6 +15,11 @@ def create_item(item: schemas.ItemCreate, db: Session = Depends(get_db)):
         raise HTTPException(status_code=400, detail=f"User with id {item.user_id} does not exist.")
 
     return service.create_item(db=db, item=item)
+
+
+@router.post("/{id}/upload-image")
+async def upload_image(item_id: int, image: UploadFile = File(...), db: Session = Depends(get_db)):
+    return await service.upload_image(db=db, item_id=item_id, image=image)
 
 
 @router.get("/{id}", response_model=schemas.Item)
